@@ -1,0 +1,244 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clothing Size Prediction</title>
+</head>
+<body>
+    <h1>Enter Your Details</h1>
+    <form method="POST">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male" {% if request.form.gender == 'Male' %}selected{% endif %}>Male</option>
+            <option value="Female" {% if request.form.gender == 'Female' %}selected{% endif %}>Female</option>
+        </select><br><br>
+
+        <label for="height">Height (in cms):</label>
+        <input type="text" id="height" name="height" value="{{ request.form.height if request.form else '' }}"><br><br>
+
+        <label for="weight">Weight (in kgs):</label>
+        <input type="text" id="weight" name="weight" value="{{ request.form.weight if request.form else '' }}"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" value="{{ request.form.age if request.form else '' }}"><br><br>
+
+        <label for="fit_preference">Fit Preference:</label>
+        <input type="text" id="fit_preference" name="fit_preference" value="{{ request.form.fit_preference if request.form else '' }}"><br><br>
+
+        {% if request.form.gender == 'Female' %}
+            <label for="bust_size">Bust Size (in inches):</label>
+            <input type="text" id="bust_size" name="bust_size" value="{{ request.form.bust_size if request.form else '' }}"><br><br>
+
+            <label for="input_continue">Do you want to enter additional dimensions? (Yes / No):</label>
+            <select id="input_continue" name="input_continue">
+                <option value="Yes" {% if request.form.gender == 'Yes' %}selected{% endif %}>Yes</option>
+                <option value="No" {% if request.form.gender == 'No' %}selected{% endif %}>No</option>
+            </select><br><br>
+
+            {% if request.form.input_continue == 'Yes' %}
+                <label for="waist_size">Waist Size (in inches):</label>
+                <input type="text" id="waist_size" name="waist_size" value="{{ request.form.waist_size if request.form else '' }}"><br><br>
+
+                <label for="hip_circumference">Hip Circumference (in inches):</label>
+                <input type="text" id="hip_circumference" name="hip_circumference" value="{{ request.form.hip_circumference if request.form else '' }}"><br><br>
+
+                <label for="inseam_length">Inseam Length (in cms):</label>
+                <input type="text" id="inseam_length" name="inseam_length" value="{{ request.form.inseam_length if request.form else '' }}"><br><br>
+            {% endif %}
+        {% elif request.form.gender == 'Male' %}
+            <label for="waist_size">Waist Size (in inches):</label>
+            <input type="text" id="waist_size" name="waist_size" value="{{ request.form.waist_size if request.form else '' }}"><br><br>
+
+            <label for="input_continue">Do you want to enter additional dimensions? (Yes / No):</label>
+            <select id="input_continue" name="input_continue">
+                <option value="Yes" {% if request.form.gender == 'Yes' %}selected{% endif %}>Yes</option>
+                <option value="No" {% if request.form.gender == 'No' %}selected{% endif %}>No</option>
+            </select><br><br>
+
+            {% if request.form.input_continue == 'Yes' %}
+                <label for="chest_circumference">Chest Circumference (in inches):</label>
+                <input type="text" id="chest_circumference" name="chest_circumference" value="{{ request.form.chest_circumference if request.form else '' }}"><br><br>
+
+                <label for="hip_circumference">Hip Circumference (in inches):</label>
+                <input type="text" id="hip_circumference" name="hip_circumference" value="{{ request.form.hip_circumference if request.form else '' }}"><br><br>
+
+                <label for="inseam_length">Inseam Length (in cms):</label>
+                <input type="text" id="inseam_length" name="inseam_length" value="{{ request.form.inseam_length if request.form else '' }}"><br><br>
+            {% endif %}
+        {% endif %}
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error %}
+    <h2 style="color: red;">Error: {{ error }}</h2>
+    {% endif %}
+
+    {% if request.method == 'POST' and not error %}
+        <h2>Suggested Size: {{ predicted_size[0] }}</h2>
+        <h2>Run Time in seconds: {{ predicted_size[1] }}</h2>
+    {% endif %}
+
+    {% if error %}
+        <h2>Error: {{ error }}</h2>
+    {% endif %}
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clothing Size Prediction</title>
+  <script>
+      function showFieldsBasedOnGender() {
+          var gender = document.getElementById("gender").value;
+          var femaleFields = document.querySelectorAll(".female-field");
+          var maleFields = document.querySelectorAll(".male-field");
+          var additionalFemaleFields = document.querySelectorAll(".additional-female-field");
+          var additionalMaleFields = document.querySelectorAll(".additional-male-field");
+
+          femaleFields.forEach(function(field) {
+              field.style.display = (gender === 'Female') ? 'block' : 'none';
+          });
+
+          maleFields.forEach(function(field) {
+              field.style.display = (gender === 'Male') ? 'block' : 'none';
+          });
+
+          // Hide additional fields initially
+          additionalFemaleFields.forEach(function(field) {
+              field.style.display = 'none';
+          });
+
+          additionalMaleFields.forEach(function(field) {
+              field.style.display = 'none';
+          });
+
+          showAdditionalFields(); // Reevaluate the additional fields based on current selection
+      }
+
+      function showAdditionalFields() {
+          var inputContinue = document.getElementById("input_continue").value;
+          var gender = document.getElementById("gender").value;
+          var additionalFemaleFields = document.querySelectorAll(".additional-female-field");
+          var additionalMaleFields = document.querySelectorAll(".additional-male-field");
+
+          if (gender === 'Female') {
+              additionalFemaleFields.forEach(function(field) {
+                  field.style.display = (inputContinue === 'Yes') ? 'block' : 'none';
+              });
+          } else if (gender === 'Male') {
+              additionalMaleFields.forEach(function(field) {
+                  field.style.display = (inputContinue === 'Yes') ? 'block' : 'none';
+              });
+          }
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+          showFieldsBasedOnGender();
+      });
+  </script>
+  <style>
+      .female-field, .male-field, .additional-female-field, .additional-male-field {
+          display: none;
+      }
+  </style>
+</head>
+<body>
+  <h1>Enter Your Details</h1>
+  <form method="POST">
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" onchange="showFieldsBasedOnGender()">
+          <option value="" {% if not request.form.gender %}selected{% endif %}></option>
+          <option value="Male" {% if request.form.gender == 'Male' %}selected{% endif %}>Male</option>
+          <option value="Female" {% if request.form.gender == 'Female' %}selected{% endif %}>Female</option>
+      </select><br><br>
+
+      <label for="height">Height (in cms):</label>
+      <input type="text" id="height" name="height" value="{{ request.form.height if request.form else '' }}"><br><br>
+
+      <label for="weight">Weight (in kgs):</label>
+      <input type="text" id="weight" name="weight" value="{{ request.form.weight if request.form else '' }}"><br><br>
+
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age" value="{{ request.form.age if request.form else '' }}"><br><br>
+
+      <label for="fit_preference">Fit Preference:</label>
+      <input type="text" id="fit_preference" name="fit_preference" value="{{ request.form.fit_preference if request.form else '' }}"><br><br>
+
+      <div class="female-field">
+          <label for="bust_size">Bust Size (in inches):</label>
+          <input type="text" id="bust_size" name="bust_size" value="{{ request.form.bust_size if request.form else '' }}"><br><br>
+      </div>
+
+      <div class="male-field">
+          <label for="waist_size">Waist Size (in inches):</label>
+          <input type="text" id="waist_size" name="waist_size" value="{{ request.form.waist_size if request.form else '' }}"><br><br>
+      </div>
+
+      <label for="input_continue">Do you want to enter additional dimensions? (Yes / No):</label>
+      <select id="input_continue" name="input_continue" onchange="showAdditionalFields()">
+          <option value="" {% if not request.form.input_continue %}selected{% endif %}></option>
+          <option value="Yes" {% if request.form.input_continue == 'Yes' %}selected{% endif %}>Yes</option>
+          <option value="No" {% if request.form.input_continue == 'No' %}selected{% endif %}>No</option>
+      </select><br><br>
+
+      <div class="additional-female-field female-field">
+          <label for="waist_size">Waist Size (in inches):</label>
+          <input type="text" id="waist_size" name="waist_size" value="{{ request.form.waist_size if request.form else '' }}"><br><br>
+          <label for="hip_circumference">Hip Circumference (in inches):</label>
+          <input type="text" id="hip_circumference" name="hip_circumference" value="{{ request.form.hip_circumference if request.form else '' }}"><br><br>
+          <label for="inseam_length">Inseam Length (in cms):</label>
+          <input type="text" id="inseam_length" name="inseam_length" value="{{ request.form.inseam_length if request.form else '' }}"><br><br>
+      </div>
+
+      <div class="additional-male-field male-field">
+          <label for="chest_circumference">Chest Circumference (in inches):</label>
+          <input type="text" id="chest_circumference" name="chest_circumference" value="{{ request.form.chest_circumference if request.form else '' }}"><br><br>
+          <label for="hip_circumference">Hip Circumference (in inches):</label>
+          <input type="text" id="hip_circumference" name="hip_circumference" value="{{ request.form.hip_circumference if request.form else '' }}"><br><br>
+          <label for="inseam_length">Inseam Length (in cms):</label>
+          <input type="text" id="inseam_length" name="inseam_length" value="{{ request.form.inseam_length if request.form else '' }}"><br><br>
+      </div>
+
+      <button type="submit">Submit</button>
+  </form>
+
+  {% if error %}
+      <h2 style="color: red;">Error: {{ error }}</h2>
+  {% endif %}
+
+  {% if request.method == 'POST' and not error %}
+      <h2>Suggested Size: {{ predicted_size[0] }}</h2>
+      <h2>Run Time in seconds: {{ predicted_size[1] }}</h2>
+  {% endif %}
+
+  {% if error %}
+      <h2>Error: {{ error }}</h2>
+  {% endif %}
+
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        // Disable specific keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) || 
+                (event.ctrlKey && event.key === 'U')) {
+                    event.preventDefault();
+                }
+        });
+        // Disable certain mouse clicks
+        document.addEventListener('mousedown', function(event) {
+            if (event.button === 2 || event.button === 1) {
+                event.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+</html>
