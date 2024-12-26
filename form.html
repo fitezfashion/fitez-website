@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitEz - Contact Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #F5F5F5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .hero, .section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+        .form-container {
+            background-color: #F5F5F5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+        .form-container h2 {
+            margin-top: 0;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-container input, .form-container textarea, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .hero .text-container {
+            text-align: center;
+        }
+        .form-container button {
+            background-color: #ff8200;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .text-container, .image-container {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+            .hero .text-container {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container section" style="background-color: #F5F5F5">
+        <div class="form-container">
+            <h2>Let's Talk</h2>
+            <form id="contactForm">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+    
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="role">Role</label>
+                <input type="text" id="role" name="role" required>
+    
+                <label for="eStoreWebsite">Your E-store URL</label>
+                <input type="url" id="eStoreWebsite" name="eStoreWebsite" required>
+    
+                <label for="monthlyTraffic">Monthly Online Traffic</label>
+                <input type="text" id="monthlyTraffic" name="monthlyTraffic" required>
+    
+                <label for="annualRevenue">Annual E-commerce Revenue</label>
+                <input type="text" id="annualRevenue" name="annualRevenue" required>
+    
+                <label for="trouble">What's troubling you?</label>
+                <textarea id="trouble" name="trouble" rows="3" required></textarea>
+    
+                <button type="submit">Submit</button>
+            </form>
+            <div id="confirmationMessage" style="display:none;">
+                <p>Thank you for reaching out! We will contact you within 48 hours.</p>
+            </div>
+        </div>    
+    </div>
+
+    
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            fetch('https://script.google.com/macros/s/AKfycbzQpp9Y_mx94P-2NQ8xIm2e2Ud43ESsTM8vkErxsQntXq64AL11VeOBkSAL3riXA5c/exec', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }, //, added on 20th June 2024
+                mode: 'no-cors'  // Add this line on 20th June 2024
+            })
+            //.then(response => response.json())
+            .then(() => {
+                document.getElementById("confirmationMessage").style.display = "block";
+                document.getElementById("contactForm").style.display = "none";
+            })
+            .catch(error => console.error('Error:', error));
+    
+            // Simulate sending Calendly link via email
+            const email = document.getElementById("email").value;
+            console.log(`Calendly link sent to ${email}`);
+        });
+    </script>
+
+
+<!-- Code just to submit without sending responses to  Google Sheets -->
+<!-- 
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+        
+            document.getElementById("confirmationMessage").style.display = "block";
+            document.getElementById("contactForm").style.display = "none";
+        
+            // Simulate sending Calendly link via email
+            const email = document.getElementById("email").value;
+            console.log(`Calendly link sent to ${email}`);
+    });
+    </script>
+-->
+</body>
+</html>
