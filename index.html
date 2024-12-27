@@ -11,108 +11,140 @@
             background-color: #F5F5F5;
         }
         .container {
-            width: 100%;
-            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
             box-sizing: border-box;
         }
         .hero, .section {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         .hero {
             background-color: #f0f0f0;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
         .logo {
             position: absolute;
             top: 20px;
             left: 20px;
-            height: 60px;
+            height: 70px;
         }
         .text-container, .image-container {
-            flex: 1 1 45%;
-            margin: 10px;
+            flex: 1 1 400px;
+            min-width: 300px;
         }
         .text-container {
             display: flex;
             flex-direction: column;
+            gap: 20px;
+        }
+        .image-container {
+            display: flex;
             justify-content: center;
-            text-align: center;
             align-items: center;
         }
-        .bullet-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: justify;
-            align-items: justify;
-        }
-        .hero .text-container {
-            text-align: center;
-        }
         .image-container img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        h1, h2 {
-            margin: 0;
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 40px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
         }
         h1 {
-            font-size: 2em;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 0;
         }
         h2 {
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin: 0 0 20px 0;
         }
         p {
-            margin: 10px 0;
-            text-align: justify;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            line-height: 1.6;
+            margin: 0;
         }
         .btn {
             background-color: #ff8200;
             color: white;
             border: none;
             border-radius: 10px;
-            width: 150px;
-            height: 50px;
-            font-size: 1.25em;
+            padding: 15px 30px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
             cursor: pointer;
-            margin-top: 20px;
+            transition: background-color 0.3s;
+            align-self: center;
+        }
+        .btn:hover {
+            background-color: #e67300;
         }
         .btn_trynow {
             background-color: #F5F5F5;
             color: #F5F5F5;
             border: none;
-            border-radius: 10px;
             width: 20px;
             height: 20px;
             font-size: 1px;
             cursor: pointer;
-            margin-top: 20px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .check-icon {
+            color: green;
+            font-size: 1.5rem;
         }
         @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            .hero, .section {
+                gap: 20px;
+            }
             .text-container, .image-container {
                 flex: 1 1 100%;
-                text-align: center;
             }
-            .hero .text-container {
-                text-align: center;
+            .logo {
+                position: relative;
+                display: block;
+                margin: 0 auto 20px;
+                left: auto;
+                top: auto;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container hero" style="background-color:#F5F5F5">
+    <div class="container hero">
         <a href="#" class="logo">
             <img src="images/logo3.svg" alt="Logo" class="logo">
         </a>
         <div class="text-container">
-            <br>
-            <h1 style="text-align:center;">Cut Size Mismatch Returns, Boost Profits</h1>
-            <p style="text-align:center">Revolutionize your online retail business with <b>FitEz</b></p>
+            <h1>Cut Size Mismatch Returns, Boost Profits</h1>
+            <p>Revolutionize your online retail business with <b>FitEz</b></p>
             <button id="getStartedBtn_1" class="btn">Get Started</button>
         </div>
         <div class="image-container">
@@ -120,81 +152,90 @@
         </div>
     </div>
 
-    <div class="container section" style="background-color: #F5F5F5">
-        <h1>Size mismatches driving returns through the roof?</h1><br>
+    <div class="container section">
+        <h1>Size mismatches driving returns through the roof?</h1>
         <div class="image-container">
             <img src="images/im2_cropped.png" alt="Section Image 1">
         </div>
         <div class="text-container">
-            <p>Online fashion retailers face high returns due to size mismatches, increasing operational costs by ~30%.</p> <br><br><br>
+            <p>Online fashion retailers face high returns due to size mismatches, increasing operational costs by ~30%.</p>
             <p>At <b>FitEz</b>, we understand these challenges. Our AI-powered solution helps your customers find their perfect fit, drastically reducing your returns and lowering your costs.</p>
         </div>
     </div>
 
-    <div class="container section" style="background-color: #F5F5F5">
+    <div class="container section">
         <div class="text-container">
-            <h1>Key Benefits of <b>FitEz</b></h1><br>
-            <p style="text-align:justified;"><b><span style="color:green;font-size: 25px;">&#10004</span> Reduce Returns:</b> Lower reverse logistics cost, streamline operations, and increase profits.</p> <br>
-            <p style="text-align:justified;"><b><span style="color:green;font-size: 25px;">&#10004</span> Increase Shopper Satisfaction:</b> Ensure the right size every time, boosting shopper confidence.</p> <br>
-            <p style="text-align:justified;"><b><span style="color:green;font-size: 25px;">&#10004</span> Seamless Integration:</b> Effortlessly integrates with your online store. Compatible with all platforms.</p> <br>
+            <h1>Key Benefits of <b>FitEz</b></h1>
+            <div class="benefit-item">
+                <span class="check-icon">✓</span>
+                <p><b>Reduce Returns:</b> Lower reverse logistics cost, streamline operations, and increase profits.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="check-icon">✓</span>
+                <p><b>Increase Shopper Satisfaction:</b> Ensure the right size every time, boosting shopper confidence.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="check-icon">✓</span>
+                <p><b>Seamless Integration:</b> Effortlessly integrates with your online store. Compatible with all platforms.</p>
+            </div>
         </div>
         <div class="image-container">
             <img src="images/img4_cropped.jpeg" alt="Section Image 2">
         </div>
     </div>
 
-    <div class="container section" style="background-color: #F5F5F5">
-        <div class="image-container">
-            <img src="images/im3_all.png" alt="Section Image 2">
-        </div>
+    <div class="container section">
         <div class="text-container">
-            <h1>How <b>FitEz</b> works</h1><br>
-            <p style="text-align:justified;"><b><span style="color:green;font-size: 25px;">&#10004</span> Precision:</b> FitEz asks shoppers about their fit preferences and uses
-                machine learning to provide uniquely tailored size recommendations.</p> <br>
-            <p style="text-align:justified;"><b><span style="color:green;font-size: 25px;">&#10004</span> Seamless:</b> FitEz integrates seamlessly with your existing website, ensuring a smooth setup.</p> <br>
-            <p style="text-align:justified;"><b><span style="color:green;font-size: 25px;">&#10004</span> User Friendly:</b> Your shoppers receive instant, personalized size
-                recommendations, leading to a perfect fit and fewer returns.</p> <br>
+            <h1>How <b>FitEz</b> works</h1>
+            <div class="benefit-item">
+                <span class="check-icon">✓</span>
+                <p><b>Precision:</b> FitEz asks shoppers about their fit preferences and uses machine learning to provide uniquely tailored size recommendations.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="check-icon">✓</span>
+                <p><b>Seamless:</b> FitEz integrates seamlessly with your existing website, ensuring a smooth setup.</p>
+            </div>
+            <div class="benefit-item">
+                <span class="check-icon">✓</span>
+                <p><b>User Friendly:</b> Your shoppers receive instant, personalized size recommendations, leading to a perfect fit and fewer returns.</p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="images/im3_all.png" alt="Section Image 3">
         </div>
     </div>
 
-    <div class="container section" style="background-color: #F5F5F5">
+    <div class="container section">
         <div class="text-container">
-            <h1>Contact Us</h1><br>
-            <p>Schedule a demo today and discover why <b>FitEz</b> is your smartest tech investment this year. Embrace AI-driven precision to delight your customers and boost profits.</p><br>
+            <h1>Contact Us</h1>
+            <p>Schedule a demo today and discover why <b>FitEz</b> is your smartest tech investment this year. Embrace AI-driven precision to delight your customers and boost profits.</p>
             <button id="getStartedBtn_2" class="btn">Get Started</button>
         </div>
-        <br><br><br>
-        
     </div>
 
-    <div class="container section" style="background-color: #F5F5F5">
-        <p style="font-size:1px; text-align:right;">
+    <div class="container section">
+        <p style="text-align:right;">
             <button id="tryNowBtn" class="btn_trynow">Try Now</button>
         </p>
     </div>
 
     <script>
-        document.getElementById("getStartedBtn_1").addEventListener("click", function() {
-            window.open("form.html", "_blank");
+        const buttons = document.querySelectorAll('#getStartedBtn_1, #getStartedBtn_2');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                window.open('form.html', '_blank');
+            });
         });
-    </script>
 
-    <script>
-        document.getElementById("getStartedBtn_2").addEventListener("click", function() {
-            window.open("form.html", "_blank");
+        document.getElementById('tryNowBtn').addEventListener('click', function() {
+            const password = prompt('Please enter the password to access this page:');
+            const correctPassword = "A%gDLV>OA'D9hT1$0$";
+            if (password === correctPassword) {
+                window.open('size_predictor.html', '_blank');
+            } else {
+                alert('Access denied. Incorrect password.');
+            }
         });
-    </script>
-
-    <script>
-       document.getElementById("tryNowBtn").addEventListener("click", function() {
-        var password = prompt("Please enter the password to access this page:");
-        var correctPassword = "A%gDLV>OA'D9hT1$0$";
-        if (password === correctPassword) {
-            window.open("size_predictor.html", "_blank");
-        } else {
-            alert("Access denied. Incorrect password.");
-        }
-       });
     </script>
 </body>
 </html>
