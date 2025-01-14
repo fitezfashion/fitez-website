@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitEz Integration Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 50px auto;
+            border-radius: 8px;
+        }
+        
+        .btn {
+            background-color: #ff8200;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-self: center;
+        }
+        .btn:hover {
+            background-color: #e67300;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FitEz Integration Guide</h1>
+    <p>Integrate the FitEz size recommender modal into your product pages in four easy steps:</p>
+
+    <div class="step">
+        <h2>1. Add Modal Styles</h2>
+        <p>Add the following styles to your page's <code>&lt;head&gt;</code> section:</p>
+        <pre><code>
+&lt;style&gt;
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+&lt;/style&gt;</code></pre>
+    </div>
+
+    <div class="step">
+        <h2>2. Add Modal HTML</h2>
+        <p>Insert this HTML where you want the size recommender trigger to appear:</p>
+        <pre><code>
+&lt;!-- Trigger button --&gt;
+&lt;a href="#" onclick="openModal()"&gt;Know Your Size&lt;/a&gt;
+
+&lt;!-- Modal container --&gt;
+&lt;div id="myModal" class="modal"&gt;
+    &lt;div class="modal-content"&gt;
+        &lt;span class="close" onclick="closeModal()"&gt;&times;&lt;/span&gt;
+        &lt;iframe id="modalFrame" style="width: 100%; height: 400px; border: none;"&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="step">
+        <h2>3. Add JavaScript Functions</h2>
+        <p>Add these functions to handle modal interactions:</p>
+        <pre><code>
+&lt;script&gt;
+function openModal() {
+    document.getElementById('modalFrame').src = 'size_recommender.html';
+    document.getElementById('myModal').style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('myModal').style.display = "none";
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="step">
+        <h2>4. Create Recommender Page</h2>
+        <p>Create a new file named <code>size_recommender.html</code> in the same directory and add your recommender form code. Contact us to get a sample code.</p>
+    </div>
+
+    <div class="step">
+        <h2>Required Credentials</h2>
+        <p>You'll need the following credentials to use the FitEz API:</p>
+        <ul>
+            <li>API Key</li>
+            <li>Secret Key</li>
+            <li>App URL</li>
+        </ul>
+    </div>
+
+    <div class="step">
+        <h1>Contact Us</h1>
+        <p>Schedule a demo today and discover why <b>FitEz</b> is your smartest tech investment this year. Embrace AI-driven precision to delight your customers and boost profits.</p>
+        <button id="getStartedBtn" class="btn">Get Started</button>
+    </div>
+
+
+    <script>
+        const buttons = document.querySelectorAll('#getStartedBtn');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                window.open('form.html', '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
