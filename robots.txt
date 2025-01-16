@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Sitemap: https://fitezapp.com/sitemap.xml
+
+# Block access to specific folders
+Disallow: /private/
+Disallow: /admin/
+Disallow: /temp/
+
+# Allow Google bot to access everything
+User-agent: Googlebot
+Allow: /
