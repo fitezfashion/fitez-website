@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "https://fitezapp.com/:path*",
+      "destination": "https://www.fitezapp.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "http://fitezapp.com/:path*",
+      "destination": "https://www.fitezapp.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "http://www.fitezapp.com/:path*",
+      "destination": "https://www.fitezapp.com/:path*",
+      "permanent": true
+    }
+  ]
+}
