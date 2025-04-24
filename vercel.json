@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/ai-size-recommendations",
+      "destination": "/blog/ai-size-recommendations.html",
+      "permanent": true
+    }
+  ]
+}
