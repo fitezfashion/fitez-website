@@ -4,6 +4,11 @@
       "source": "/blog/ai-size-recommendations",
       "destination": "/blog/ai-size-recommendations.html",
       "permanent": true
+    },
+    {
+      "source": "/blog/reduce-fashion-returns",
+      "destination": "/blog/reduce-fashion-returns.html",
+      "permanent": true
     }
   ]
 }
