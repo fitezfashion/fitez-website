@@ -10,5 +10,10 @@
       "destination": "/blog/reduce-fashion-returns.html",
       "permanent": true
     }
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html",
+      "permanent": true
+    }
   ]
 }
