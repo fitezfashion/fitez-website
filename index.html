@@ -133,6 +133,15 @@
             border: none;
             border-radius: 8px;
         }
+        .video-section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        .video-section h2 {
+            margin-bottom: 30px;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
         h1 {
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             margin: 0;
@@ -208,6 +217,12 @@
                 left: auto;
                 top: auto;
             }
+            .video-container {
+                max-width: 100%;
+            }
+            .video-section {
+                padding: 40px 15px;
+            }
         }
     </style>
 </head>
@@ -227,11 +242,24 @@
             <img src="images/FitEz_helps_online_fashion_retailers_reduce_size_related_returns.webp" alt="FitEz AI size recommendation tool for online fashion retailers, reducing size-related returns by guiding customers to the perfect fit.">
         </div>
     </div>
+
+    <div class="container section">
+        <div class="text-container">
+            <h2 style="text-align: center;">View FitEz in Action</h2>
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/1085645634?h=f559d23620&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                    title="FitEz for Fashion Brands: Reduce Returns with Personalized Size Recommendations">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <script src="https://player.vimeo.com/api/player.js"></script>
     
     <div class="container section">
         <div class="text-container">
             <h2>Struggling with High Return Rates Due to Size Mismatches?</h2>
-            <p>Size-related returns are a major challenge for online fashion retailers, increasing operational costs by 30% and impacting profitability.</p>
+            <p>Size-related returns cost brands up to 17% in return rates, increase logistics costs by 27%, and make customers 36% less likely to repurchase.</p>
             <p><b>FitEz</b> uses AI to help your customers find the perfect fit, reducing returns, boosting conversions, and lowering costs.</p>
         </div>
         <div class="image-container">
