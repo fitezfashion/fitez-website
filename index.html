@@ -58,11 +58,38 @@
             font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
             background-color: #F5F5F5;
         }
+        /* Header and Navigation */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px 10px 10px;
+            background-color: #F5F5F5;
+            border-bottom: 1px solid #F5F5F5;
+        }
+        .logo {
+            height: 100px;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-tab {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .nav-tab:hover {
+            background-color: #f0f0f0;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
-            box-sizing: border-box;
+            padding: 20px 20px;
         }
         .hero, .section {
             display: flex;
@@ -73,7 +100,7 @@
             margin-bottom: 40px;
         }
         .hero {
-            background-color: #f0f0f0;
+            background-color: #F5F5F5;
             padding: 60px 20px;
         }
         .logo {
