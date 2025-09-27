@@ -103,25 +103,6 @@
             background-color: #F5F5F5;
             padding: 60px 20px;
         }
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            height: 70px;
-        }
-        .blog-link {
-            position: absolute;
-            top: 20px;
-            right: 50px;
-            font-size: 1rem;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-        .blog-link:hover {
-            color: #ff8200; /* Hover color */
-        }
         .text-container, .image-container {
             flex: 1 1 400px;
             min-width: 300px;
@@ -138,10 +119,8 @@
         }
         .image-container img {
             max-width: 80%;
-            max-height: 80%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .video-container {
             position: relative;
@@ -162,7 +141,7 @@
         }
         .video-section {
             padding: 60px 20px;
-            background-color: #ffffff;
+            background-color: #F5F5F5;
             text-align: center;
         }
         .video-section h2 {
@@ -227,7 +206,17 @@
             font-size: 1rem;
             margin: 5px 0 0;
         }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+        }
+
         @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
             .container {
                 padding: 20px;
             }
@@ -236,16 +225,6 @@
             }
             .text-container, .image-container {
                 flex: 1 1 100%;
-            }
-            .logo {
-                position: relative;
-                display: block;
-                margin: 0 auto 20px;
-                left: auto;
-                top: auto;
-            }
-            .video-container {
-                max-width: 100%;
             }
             .video-section {
                 padding: 40px 15px;
