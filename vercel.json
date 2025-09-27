@@ -14,6 +14,16 @@
       "source": "/privacy",
       "destination": "/privacy.html",
       "permanent": true
+    },
+    {
+      "source": "/roi-calculator",
+      "destination": "/roi-calculator.html",
+      "permanent": true
+    },
+    {
+      "source": "/documentation",
+      "destination": "/documentation.html",
+      "permanent": true
     }
   ]
 }
