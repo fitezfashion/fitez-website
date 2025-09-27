@@ -24,6 +24,11 @@
       "source": "/documentation",
       "destination": "/documentation.html",
       "permanent": true
+    },
+    {
+      "source": "/blog/blog",
+      "destination": "/blog/blog.html",
+      "permanent": true
     }
   ]
 }
