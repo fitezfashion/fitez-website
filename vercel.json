@@ -11,6 +11,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/true-cost-clothing-returns",
+      "destination": "/blog/true-cost-clothing-returns.html",
+      "permanent": true
+    },
+    {
       "source": "/privacy",
       "destination": "/privacy.html",
       "permanent": true
