@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns Cost & ROI Calculators for Online Fashion Brands | Reduce Returns & Boost Profits with FitEz</title>
+    <meta name="description" content="Discover how much product returns are costing your online clothing store with our free Returns Cost Calculator, and see the profit potential with our ROI Calculator. Enter your revenue and return rates to uncover hidden losses. Learn how FitEz size recommendation software reduces return costs, improves conversions, and delivers powerful ROI for online fashion brands.">
+    <meta name="keywords" content="Returns cost calculator for fashion brands, ROI calculator for online clothing stores, fashion ecommerce return rate calculator, calculate losses from product returns apparel, AI size recommendation ROI calculator, reduce apparel returns ecommerce tool, conversion improvement calculator for fashion retailers, sizing mismatch returns calculator clothing brands, ecommerce apparel returns cost analysis, profitability calculator for online fashion retailers, fashion brand return rate calculator tool, improve ROI for clothing ecommerce with AI, ecommerce returns calculator FitEz, annual revenue loss from clothing returns, fashion ecommerce software ROI calculator">
+
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+      {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "FitEz AI Size Predictor",
+          "description": "AI-powered size prediction software for fashion brands to reduce returns & boost conversions.",
+          "applicationCategory": "BusinessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "600",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "brand": {
+            "@type": "Brand",
+            "name": "FitEz"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "127"
+          }
+      }
+    </script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #F5F5F5;
+        } 
+        /* Header and Navigation */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px 10px 10px;
+            background-color: #F5F5F5;
+            border-bottom: 1px solid #F5F5F5;
+        }
+        .logo {
+            height: 100px;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-tab {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .nav-tab:hover {
+            background-color: #f0f0f0;
+        }
+        
+        h1, h2, h3 {
+            color: #333;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .calculator {
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .calculator-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eaecef;
+        }
+        
+        .calculator-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .returns-calc .calculator-icon {
+            background-color: #ffebee;
+            color: #d32f2f;
+        }
+        
+        .roi-calc .calculator-icon {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .helper-note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .results {
+            background-color: #f6f8fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 25px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .result-total {
+            display: flex;
+            font-weight: bold;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            color: #d32f2f;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+        }
+        
+        .roi-calc .result-total {
+            color: #2e7d32;
+        }
+        
+        .btn {
+            background-color: #ff8200;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-self: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #e67300;
+        }
+        
+        .btn1 {
+            background-color: #ff8200;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-self: center;
+            margin-top: 20px;
+            width: 33%;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .step {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #fff;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+            
+            .calculator {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://www.fitezapp.com" class="logo">
+            <img src="images/AI_size_recommendation_helps_reduce_size_mismatch_returns_boost_profits.svg" alt="FitEz AI-powered size recommendation tool for online fashion retailers, helping shoppers find the perfect fit and reduce size-related returns." class="logo">
+        </a>
+        <nav class="nav-tabs">
+            <a href="roi-calculator" target="_blank" class="nav-tab">Calculator</a>
+            <a href="documentation" target="_blank" class="nav-tab">Documentation</a>
+            <a href="/blog/blog" target="_blank" class="nav-tab">Blog</a>
+        </nav>
+    </header>
+    
+    <h1>Returns Cost Calculator & ROI Calculator for Online Fashion Brands</h1>
+    <p>See how much returns are costing your store, and how much profit you gain by using FitEz AI size recommendation software.</p>
+    
+    <div class="container">
+        <!-- Returns Calculator -->
+        <div class="calculator returns-calc">
+            <div class="calculator-header">
+                <div class="calculator-icon">🛑</div>
+                <div>
+                    <h2>Returns Cost Calculator</h2>
+                    <p>See the true cost of returns to your business</p>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="annualRevenue">1. Annual Apparel Revenue ($)</label>
+                <input type="number" id="annualRevenue" min="0" step="1000">
+                <div class="helper-note">Your total annual revenue from apparel sales.</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="returnRate">2. Estimated Total Return Rate (%)</label>
+                <input type="number" id="returnRate" min="0" max="100" step="0.1">
+                <div class="helper-note">Industry average for online apparel is 20-40%. If unsure, start with 30%.</div>
+            </div>
+
+            <div class="input-group">
+                <label for="sizeReturnRate">3.  % Returns Due to Sizing</label>
+                <input type="number" id="sizeReturnRate" min="0" max="100" step="0.1">
+                <div class="helper-note">Industry average for online apparel is 40-60%. If unsure, start with 40%.</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="returnCost">4. Cost of Returns (% of item's value)</label>
+                <input type="number" id="returnCost" min="0" max="100" step="0.1">
+                <div class="helper-note">Includes shipping, labor for processing, restocking, and packaging. Industry estimates range from 15-25%. If unsure, start with 15%.</div>
+            </div>
+
+            <div class="input-group">
+                <label for="returnItemResold">5. Returned Item Resold (%)</label>
+                <input type="number" id="returnItemResold" min="0" max="100" step="0.1">
+                <div class="helper-note">A significant portion of returned items cannot be resold at full price due to seasonality, damage, or being marked as 'used'. Industry estimates range from 10-20%. If unsure, start with 20%.</div>
+            </div>
+
+            <div class="input-group">
+                <label for="returnItemDiscount">6. Discount Offered to Resell Returned Items (%)</label>
+                <input type="number" id="returnItemDiscount" min="0" max="100" step="0.1">
+                <div class="helper-note">Any return resold is at high discount with Industry average for online apparel is 40-60%. If unsure, start with 40%.</div>
+            </div>
+            
+            <button class="btn" onclick="calculateReturns()">Calculate Returns Cost</button>
+            
+            <div class="results" id="returnsResults">
+                <h3>Calculated Impact</h3>
+                <div class="result-item">
+                    <span>A. Value of Returned Goods</span>
+                    <span id="returnedGoodsValue">$500,000</span>
+                </div>
+                <div class="result-item">
+                    <span>B. Direct Cost of Processing Returns</span>
+                    <span id="processingCost">$75,000</span>
+                </div>
+                <div class="result-item">
+                    <span>C. Lost Revenue (items not re-sold or sold at a discount)</span>
+                    <span id="lostRevenue">$250,000</span>
+                </div>
+                <div class="result-total">
+                    <span>Total Annual Loss From Returns</span>
+                    <span id="totalLoss">$325,000</span>
+                </div>
+                <div class="result-item">
+                    <span>Monthly Loss From Returns</span>
+                    <span id="monthlyLoss">$27,083</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ROI Calculator -->
+        <div class="calculator roi-calc">
+            <div class="calculator-header">
+                <div class="calculator-icon">✅</div>
+                <div>
+                    <h2>FitEz ROI Calculator</h2>
+                    <p>See how much you can save by reducing returns</p>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="annualLoss">Total Annual Loss from Returns ($)</label>
+                <input type="number" id="annualLoss" min="0" step="1000" value="325000" readonly>
+                <div class="helper-note">This value is automatically populated from the Returns Calculator.</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="reductionRate">1. Reduction in Return Rate (%)</label>
+                <input type="number" id="reductionRate" min="0" max="100" step="0.1" value="25">
+                <div class="helper-note">Case studies show our FitEz Size Recommendation Software can reduce size-related returns by 25-33%. We're using a conservative 25%.</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="conversionIncrease">2. Potential Increase in Conversion Rate (%)</label>
+                <input type="number" id="conversionIncrease" min="0" max="100" step="0.1" value="5">
+                <div class="helper-note">Shoppers confident in their size are more likely to buy. Case studies show FitEz Size Recommendation Software can increase conversion by 5-10%. We're using a conservative 5%.</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="roiAnnualRevenue">3. Your Annual Revenue ($)</label>
+                <input type="number" id="roiAnnualRevenue" min="0" step="1000">
+                <div class="helper-note">Your total annual revenue (same as in Returns Calculator).</div>
+            </div>
+            
+            <div class="input-group">
+                <label for="monthlyCost">4. Monthly Cost of FitEz ($)</label>
+                <input type="number" id="monthlyCost" min="0" step="10" value="499" readonly>
+                <div class="helper-note">The monthly subscription fee for our FitEz Size Recommendation Software.</div>
+            </div>
+            
+            <button class="btn" onclick="calculateROI()">Calculate ROI</button>
+            
+            <div class="results" id="roiResults">
+                <h3>Calculated ROI</h3>
+                <div class="result-item">
+                    <span>A. Annual Savings from Reduced Returns</span>
+                    <span id="savingsFromReturns">$32,500</span>
+                </div>
+                <div class="result-item">
+                    <span>B. Additional Revenue from Higher Conversion</span>
+                    <span id="additionalRevenue">$100,000</span>
+                </div>
+                <div class="result-total">
+                    <span>Total Annual Gain</span>
+                    <span id="totalGain">$132,500</span>
+                </div>
+                <div class="result-item">
+                    <span>Cost of FitEz Size Advisor (Annual)</span>
+                    <span id="annualCost">$3,588</span>
+                </div>
+                <div class="result-total">
+                    <span>Net Annual Savings</span>
+                    <span id="netSavings">$128,912</span>
+                </div>
+                <div class="result-item">
+                    <span>Return On Investment (ROI)</span>
+                    <span id="roiPercentage">3,592%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="disclaimer">
+        Note: These calculations are based on industry averages and conservative estimates. Actual results may vary.
+    </div>
+    
+    <div class="step">
+        <h2>Returns Cost Calculator & ROI Calculator for Online Fashion Brands</h2>
+        <p>Fashion ecommerce is booming, but so are returns. For online clothing retailers, product returns are among the largest hidden costs dragging <a href="https://www.fitezapp.com/blog/reduce-fashion-returns.html" target="_blank">down profits</a>. The majority of these returns are due to sizing mismatches, frustrated customers, and the ongoing challenges of online fit. Industry data show return rates for apparel hover between 20% and 40%, making <a href="https://www.opensend.com/post/return-refund-rate-ecommerce" target="_blank">fashion</a> the ecommerce sector with the highest return <a href="https://www.rocketreturns.io/blog/ecommerce-return-rates-2025-complete-industry-analysis-benchmarks-by-category" target="_blank">rates</a>. Every returned item erodes margins and increases operational complexity for brands.</p>
+        <p>This is why we created the Returns Cost Calculator and ROI Calculator. With these two powerful tools, online fashion brands finally have a way to see exactly how much money is being lost due to returns, and how much profit can be unlocked with FitEz's AI-powered size recommendations.</p>
+        
+        <br/>
+
+        <h3>Why Returns Are Costly for Online Fashion Brands</h3>
+        <p>Ecommerce fashion returns are a complex and expensive challenge. Unlike electronics or books, clothing presents subjective fit issues that create uncertainty for shoppers. <a href="https://www.fitezapp.com/blog/reduce-fashion-returns.html" target="_blank">Return rates</a> for clothing typically land in the 24–26% range in both the US and UK, <a href="https://www.fitezapp.com/blog/ai-size-recommendations.html" target="_blank">with subcategories like fast fashion</a>, womenswear, and shoes regularly exceeding 30%. <a href="https://www.rocketreturns.io/blog/ecommerce-return-rates-2025-complete-industry-analysis-benchmarks-by-category" target="_blank">US market research</a> confirms that apparel accounts for <a href="https://www.opensend.com/post/return-refund-rate-ecommerce" target="_blank">more returns</a> than any other product type.</p>
+        <p>The vast majority of these returns are due to fit and size issues: up to 67% of fashion returns are attributed to sizing, with "too small" being the most frequent complaint. "Bracketing," the practice of ordering multiple sizes and returning unwanted ones, <a href="https://www.clickpost.ai/blog/ecommerce-return-statistics" target="_blank">continues to rise</a>. Inaccurate size charts, inconsistent fit across brands, and the inability to try before buying drive these <a hre="https://www.fitezapp.com/blog/reduce-fashion-returns.html" target="_blank">figures higher</a>.</p>
+
+        <p>Returns aren't just a logistics issue, they translate to real financial loss. US retailers face nearly $890 billion in returns annually, accounting for over 17% of all retail sales. The direct cost per return (postage, processing, repackaging) typically ranges from $10–$25 <a hre="https://www.statista.com/forecasts/997235/most-returned-online-purchases-by-category-in-the-us" target="_blank">per item</a> in the US and UK. Hidden costs include restocking, damaged inventory, and lost sales opportunities.</p>
+
+        <br/>
+        
+        <h3>Calculate Your Annual Return Losses with the Returns Cost Calculator</h3>
+        <p>The Returns Cost Calculator brings clarity to the magnitude of the problem. Simply input:</p>
+        <ul>
+            <li>Annual revenue</li>
+            <li>Total return rate</li>
+            <li>Portion of returns caused by sizing mismatches</li>
+            <li>Revenue lost due to unsold returns</li>
+        </ul>
+        <p>…and instantly see how much is being lost each year due to returns.</p>
+        <p>For brands earning $10M in annual revenue with a 25% return rate, losses can easily reach into the millions annually, even before considering reduced customer lifetime value or brand reputation. This aligns with detailed benchmarks showing overall return rates of 24–30% for general apparel and 28–34% for subcategories like women's fashion, shoes, and plus-size.</p>
+        <p>Understanding your actual return cost lets your business:</p>
+        <ul>
+            <li>Justify investments in technology that address returns</li>
+            <li>Benchmark against industry competitors</li>
+            <li>Convince stakeholders about the bottom-line urgency</li>
+        </ul>
+
+        <br/>
+        <h3>ROI Calculator: See the Profit Impact of Using FitEz</h3>
+        <p>After exposing current losses, the ROI Calculator reveals the financial upside of deploying FitEz's AI size recommendation software. The calculator outputs a projected ROI percentage—translating operational changes into pure financial gain. Case studies show that AI sizing platform can reduce size-related returns by up to 33% and elevate conversion rates by 5–8% on average. Typical scenarios show a 10x or greater return on technology investment for scaling online brands.</p>
+
+        <br/>
+        <h3>Benefits of Using FitEz for Online Clothing Retailers</h3>
+        <p>Deploying FitEz delivers measurable results where online apparel brands need them most:</p>
+        <ul>
+            <li><b>Reduced returns caused by wrong sizing:</b> Fewer bracketing orders and improved first-time fit</li>
+            <li><b>Higher conversion rates:</b> Enhanced fit certainty improves shopper confidence </li>
+            <li><b>Greater customer satisfaction:</b> Shoppers frustrated with returns are more likely to shop elsewhere; fixing fit grows loyalty</li>
+            <li><b>Improved margins and bottom line:</b> Lower costs and higher sales translate to improved profitability</li>
+        </ul>
+        <p>Industry benchmarks and case studies confirm these gains, especially for mid-market and enterprise brands seeking sustainable growth.</p>
+
+        <br/>
+        <h3>Who Should Use the Returns & ROI Calculators</h3>
+        <p>These calculators are built for all types of fashion ecommerce operations, especially:</p>
+        <ul>
+            <li><b>Direct-to-consumer (DTC) clothing brands</b> looking to cut losses and scale faster</li>
+            <li><b>Mid-market fashion retailers</b> navigating rising return costs</li>
+            <li><b>Enterprise clothing retailers</b> needing boardroom-ready ROI justification</li>
+            <li><b>Athleisure, luxury, and fast fashion brands</b> where fit and sizing challenges are acute</li>
+        </ul>
+        <p>With 67% of returns attributed to fit or sizing, and fashion’s average return rate surpassing 25%, these calculators provide critical business intelligence for online fashion stores.</p>
+
+        <br/>
+        <h3>How to Get Started Today</h3>
+        <p><b>Step 1:</b> Enter your revenue and returns data into the Returns Cost Calculator.</p>
+        <p><b>Step 2:</b> Instantly see your total annual financial loss attributed to returns.</p>
+        <p><b>Step 3:</b> Use the ROI Calculator to project performance boosts and cost savings.</p>
+        <p>The average fashion brand takes under five minutes to see actionable insights with these tools, and many uncover immediate opportunities for cost recovery.</p>
+
+        <br/>
+        <h3>FAQ</h3>
+        <p><b>How accurate is the calculator?</b><br/>The calculators are directional and based on your inputs. They are designed to model realistic industry averages while highlighting the scale of the problem.</p>
+        <p><b>Is this tool only for fashion brands?</b><br/>Yes. While ecommerce returns affect other industries, the calculators are specifically tailored for clothing and apparel businesses where sizing drives the majority of returns.</p>
+        <p><b>Can international clothing brands use it?</b><br/>Absolutely. Whether you sell in the US, UK, Europe, or globally, the calculator adapts to your inputs to show local return challenges.</p>
+
+        <br/>
+        <h3>Start Reducing Returns & Increasing ROI with FitEz Today</h3>
+        <p>Returns are eroding your profits every single day. What feels like a normal cost of doing business is actually a hidden iceberg sinking your margins. With the Returns Cost Calculator, you finally see the scope of the problem. With the ROI Calculator, you see the solution. </p>
+        <p><b>FitEz</b> delivers real, measurable business impact: fewer returns, more conversions, happier customers, and higher profits.</p>
+        <p><b>Take control of your profit margins: try the Returns Cost & ROI Calculator now and see instant results.</b></p>
+
+    </div>
+
+    
+    <br/>
+    <div class="step">
+        <h1>Contact Us</h1>
+        <p>Schedule a demo today and discover why <b>FitEz</b> is your smartest tech investment this year. Embrace AI-driven precision to delight your customers and boost profits.</p>
+        <button id="getStartedBtn" class="btn1">Contact Us</button>
+    </div>
+
+    <script>
+        // Format numbers as currency
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+        
+        // Calculate returns
+        function calculateReturns() {
+            const annualRevenue = parseFloat(document.getElementById('annualRevenue').value) || 0;
+            const returnRate = parseFloat(document.getElementById('returnRate').value) || 0;
+            const sizeReturnRate = parseFloat(document.getElementById('sizeReturnRate').value) || 0;
+            const returnCost = parseFloat(document.getElementById('returnCost').value) || 0;
+            const returnItemResold = parseFloat(document.getElementById('returnItemResold').value) || 0;
+            const returnItemDiscount = parseFloat(document.getElementById('returnItemDiscount').value) || 0;
+            
+            const returnedGoodsValue = annualRevenue * (returnRate / 100) * (sizeReturnRate / 100);
+            const processingCost = returnedGoodsValue * (returnCost / 100);
+            const lostRevenue = (returnedGoodsValue * (1 - (returnItemResold / 100))) + (returnedGoodsValue * (returnItemResold / 100) * (returnItemDiscount/100));
+            const totalLoss = processingCost + lostRevenue;
+            const monthlyLoss = totalLoss / 12;
+            
+            // Update Returns Calculator results
+            document.getElementById('returnedGoodsValue').textContent = formatCurrency(returnedGoodsValue);
+            document.getElementById('processingCost').textContent = formatCurrency(processingCost);
+            document.getElementById('lostRevenue').textContent = formatCurrency(lostRevenue);
+            document.getElementById('totalLoss').textContent = formatCurrency(totalLoss);
+            document.getElementById('monthlyLoss').textContent = formatCurrency(monthlyLoss);
+            
+            // Update ROI Calculator input
+            document.getElementById('annualLoss').value = totalLoss;
+            document.getElementById('roiAnnualRevenue').value = annualRevenue;
+            
+            // Recalculate ROI
+            calculateROI();
+        }
+        
+        // Calculate ROI
+        function calculateROI() {
+            const annualLoss = parseFloat(document.getElementById('annualLoss').value) || 0;
+            const reductionRate = parseFloat(document.getElementById('reductionRate').value) || 0;
+            const conversionIncrease = parseFloat(document.getElementById('conversionIncrease').value) || 0;
+            const annualRevenue = parseFloat(document.getElementById('roiAnnualRevenue').value) || 0;
+            const monthlyCost = parseFloat(document.getElementById('monthlyCost').value) || 0;
+            
+            const savingsFromReturns = annualLoss * (reductionRate / 100);
+            const additionalRevenue = annualRevenue * (conversionIncrease / 100);
+            const totalGain = savingsFromReturns + additionalRevenue;
+            const annualCost = monthlyCost * 12;
+            const netSavings = totalGain - annualCost;
+            const roiPercentage = annualCost > 0 ? (netSavings / annualCost) * 100 : 0;
+            
+            // Update ROI Calculator results
+            document.getElementById('savingsFromReturns').textContent = formatCurrency(savingsFromReturns);
+            document.getElementById('additionalRevenue').textContent = formatCurrency(additionalRevenue);
+            document.getElementById('totalGain').textContent = formatCurrency(totalGain);
+            document.getElementById('annualCost').textContent = formatCurrency(annualCost);
+            document.getElementById('netSavings').textContent = formatCurrency(netSavings);
+            document.getElementById('roiPercentage').textContent = roiPercentage.toFixed(0) + '%';
+        }
+        
+        // Initialize calculators on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateReturns();
+        });
+        
+        // Add event listeners to inputs for real-time calculation
+        document.getElementById('annualRevenue').addEventListener('input', calculateReturns);
+        document.getElementById('returnRate').addEventListener('input', calculateReturns);
+        document.getElementById('returnCost').addEventListener('input', calculateReturns);
+        document.getElementById('reductionRate').addEventListener('input', calculateROI);
+        document.getElementById('conversionIncrease').addEventListener('input', calculateROI);
+        document.getElementById('roiAnnualRevenue').addEventListener('input', calculateROI);
+        document.getElementById('monthlyCost').addEventListener('input', calculateROI);
+    </script>
+
+    <script>
+        const buttons = document.querySelectorAll('#getStartedBtn');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+            window.open('https://calendly.com/fitezfashion/learn', '_blank'); 
+            });
+        });
+</script>
+</body>
+</html>
