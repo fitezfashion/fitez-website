@@ -2,56 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.fitezapp.com/</loc>
-      <lastmod>2025-09-27</lastmod>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
    <!-- Add additional URLs as needed -->
    <url>
       <loc>https://www.fitezapp.com/blog/blog.html</loc>
-      <lastmod>2025-09-28</lastmod>
+      <lastmod>2025-10-02</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.fitezapp.com/casestudy/casestudy.html</loc>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.fitezapp.com/roi-calculator.html</loc>
-      <lastmod>2025-09-27</lastmod>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.fitezapp.com/documentation.html</loc>
-      <lastmod>2025-09-27</lastmod>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.fitezapp.com/form.html</loc>
-      <lastmod>2025-04-24</lastmod>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.fitezapp.com/blog/ai-size-recommendations.html</loc>
-      <lastmod>2025-09-27</lastmod>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.fitezapp.com/blog/reduce-fashion-returns.html</loc>
-      <lastmod>2025-09-27</lastmod>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.fitezapp.com/blog/true-cost-clothing-returns.html</loc>
-      <lastmod>2025-09-28</lastmod>
+      <lastmod>2025-10-02</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.fitezapp.com/blog/return-roi-calculator.html</loc>
+      <lastmod>2025-10-02</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.fitezapp.com/casestudy/dtc-returns-reduce-22.html</loc>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
       <loc>https://www.fitezapp.com/privacy.html</loc>
-      <lastmod>2025-09-27</lastmod>
+      <lastmod>2025-10-02</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
