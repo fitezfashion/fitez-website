@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitEz Case Studies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F5F5F5;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .home-link {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #666;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1.5rem;
+            transition: color 0.2s;
+        }
+        
+        .home-link:hover {
+            color: #007acc;
+        }
+        
+        .home-link::before {
+            content: "← ";
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .blog-post {
+            background: #F5F5F5;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .post-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .post-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .post-title a:hover {
+            color: #007acc;
+        }
+        
+        .post-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .post-summary {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-post {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://www.fitezapp.com" class="home-link">Back to Homepage</a>
+        <h1>FitEz Case Studies</h1>
+        <p class="subtitle">The latest case studies from FitEz.</p>
+    </header>
+    
+    <main>
+        <!-- Blog posts will be dynamically inserted here -->
+        <div id="blog-posts-container"></div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 FitEz. All rights reserved. • <a href="https://www.fitezapp.com">Back to FitEz home</a></p>
+    </footer>
+
+    <script>
+        // This function would fetch blog post data from your actual blog files
+        // For demonstration, I'm using sample data
+        function loadBlogPosts() {
+            // Sample blog post data - in reality, you would fetch this from your actual blog files
+            const blogPosts = [
+                {
+                    title: "How We Helped a DTC Brand Reduce Returns by 22% in 4 Months",
+                    date: "2025-10-02",
+                    summary: "In online fashion, returns quietly erode profit, especially for sustainability-driven DTC brands. Facing a 38% return rate, one $1M+ brand partnered with FitEz for four months. The result: returns dropped 22%, AOV rose 15%, and conversion rates jumped 15 points on pages using our AI size recommendation tool. This case study offers a strategic blueprint for turning returns from a liability into a competitive edge.",
+                    filename: "dtc-brand-returns-reduced-22percent-4months.html"
+                }
+            ];
+            
+            // Sort posts by date (newest first)
+            blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            const container = document.getElementById('blog-posts-container');
+            
+            // Create HTML for each blog post
+            blogPosts.forEach(post => {
+                const postElement = document.createElement('article');
+                postElement.className = 'blog-post';
+                
+                // Format date for display
+                const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                postElement.innerHTML = `
+                    <h2 class="post-title">
+                        <a href="${post.filename}" target="_blank">${post.title}</a>
+                    </h2>
+                    <div class="post-date">${formattedDate}</div>
+                    <p class="post-summary">${post.summary}</p>
+                `;
+                
+                container.appendChild(postElement);
+            });
+        }
+        
+        // Load blog posts when the page is ready
+        document.addEventListener('DOMContentLoaded', loadBlogPosts);
+    </script>
+</body>
+</html>
