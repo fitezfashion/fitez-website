@@ -34,6 +34,16 @@
       "source": "/blog/blog",
       "destination": "/blog/blog.html",
       "permanent": true
+    },
+    {
+      "source": "/casestudy/casestudy",
+      "destination": "/casestudy/casestudy.html",
+      "permanent": true
+    },
+    {
+      "source": "/casestudy/dtc-returns-reduce-22%",
+      "destination": "/casestudy/dtc-returns-reduce-22%.html",
+      "permanent": true
     }
   ]
 }
