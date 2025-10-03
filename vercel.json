@@ -41,8 +41,13 @@
       "permanent": true
     },
     {
-      "source": "/casestudy/dtc-returns-reduce-22%",
-      "destination": "/casestudy/dtc-returns-reduce-22%.html",
+      "source": "/casestudy/dtc-returns-reduce-22",
+      "destination": "/casestudy/dtc-returns-reduce-22.html",
+      "permanent": true
+    },
+    {
+      "source": "/casestudy/ca-plus-reduce-405",
+      "destination": "/casestudy/ca-plus-reduce-405.html",
       "permanent": true
     }
   ]
