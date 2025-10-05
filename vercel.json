@@ -49,6 +49,11 @@
       "source": "/casestudy/ca-plus-reduce-405",
       "destination": "/casestudy/ca-plus-reduce-405.html",
       "permanent": true
+    },
+    {
+      "source": "/blog/return-cost-high-sticker-price",
+      "destination": "/blog/return-cost-high-sticker-price.html",
+      "permanent": true
     }
   ]
 }
