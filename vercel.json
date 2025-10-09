@@ -54,6 +54,11 @@
       "source": "/blog/return-cost-high-sticker-price",
       "destination": "/blog/return-cost-high-sticker-price.html",
       "permanent": true
+    },
+    {
+      "source": "/casestudy/premium-jeans-slash-returns-45",
+      "destination": "/casestudy/premium-jeans-slash-returns-45.html",
+      "permanent": true
     }
   ]
 }
