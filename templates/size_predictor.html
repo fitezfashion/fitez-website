@@ -259,7 +259,8 @@
 
             console.log('Form data being sent:', formData);
 
-            fetch('http://3.135.111.197:5000/api/predict_size', { // (1) 'http://3.135.111.197:5000/api/predict_size'; (2) https://api.fitezapp.com:5000/api/predict_size; 
+          fetch('https://api.fitezapp.com/api/predict_size', {  
+          //fetch('http://3.135.111.197:5000/api/predict_size', { // (1) 'http://3.135.111.197:5000/api/predict_size'; (2) https://api.fitezapp.com:5000/api/predict_size; 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
