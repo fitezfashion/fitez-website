@@ -189,6 +189,7 @@
   </form>
 
     <h2 id="predictedSize" style="display: none;">My Fit: </h2>
+    <p id="timeTaken" style="display: none; color: #555; font-size: 14px;"></p>
     <h2 id="error" style="color: red;"></h2>
 
     <script>
@@ -210,6 +211,14 @@
         //});
 
         function submitForm() {
+            // --- START TIMER: recorded the instant button is clicked ---
+            var startTime = performance.now();
+ 
+            // Hide previous results and timer before new submission
+            document.getElementById('predictedSize').style.display = 'none';
+            document.getElementById('timeTaken').style.display = 'none';
+            document.getElementById('error').style.display = 'none'; 
+          
             const gender = document.getElementById('gender').value;
             const formData = {
                 gender: gender,
@@ -270,6 +279,10 @@
             .then(response => response.json())
             .then(data => {
                 if (data.predicted_size) {
+                    // --- STOP TIMER: recorded the instant response is ready to display ---
+                    var endTime = performance.now();
+                    var timeTakenSeconds = ((endTime - startTime) / 1000).toFixed(2);
+                    
                     document.getElementById('predictedSize').innerHTML = `My  Fit: ${data.predicted_size}`;
                     document.getElementById('predictedSize').style.display = 'block';
                     document.getElementById('error').style.display = 'none';
