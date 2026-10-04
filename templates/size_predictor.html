@@ -189,7 +189,7 @@
   </form>
 
     <h2 id="predictedSize" style="display: none;">My Fit: </h2>
-    <p id="timeTaken" style="display: none; color: #555; font-size: 14px;"></p>
+    <p id="timeTaken" style="display: none; font-size: 16px; font-weight: bold; color: #1a6b2f; border: 1px solid #1a6b2f; border-radius: 4px; padding: 8px 12px; display: none; width: fit-content; margin-top: 4px;">⏱ Response time: </p>
     <h2 id="error" style="color: red;"></h2>
 
     <script>
@@ -285,6 +285,11 @@
                     
                     document.getElementById('predictedSize').innerHTML = `My  Fit: ${data.predicted_size}`;
                     document.getElementById('predictedSize').style.display = 'block';
+
+                    // Display the elapsed time below the result
+                    document.getElementById('timeTaken').innerHTML = `Response time: ${timeTakenSeconds} seconds`;
+                    document.getElementById('timeTaken').style.display = 'block';
+ 
                     document.getElementById('error').style.display = 'none';
                 }
                 else {
